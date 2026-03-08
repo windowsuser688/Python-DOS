@@ -1,0 +1,14 @@
+{
+    "region": "United States",
+    "scaling": 1.0,
+    "background_color": "blue",
+    "selection_color": "red",
+    "users": [
+        {
+            "username": "root",
+            "password": "",
+            "home_dir": "usr/root"
+        }
+    ],
+    "current_user": "root"
+}
