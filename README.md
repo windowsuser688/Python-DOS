@@ -60,6 +60,7 @@ pip install pygame
 - **Music Player**: Play MP3/WAV/OGG files
 - **Web Browser**: Browse websites (text-only)
 - **Settings**: Customize colors, region, and scaling
+- And so much more!
 
 # Bugs
 Changing regions is currently broken. Will fix in the next update.
