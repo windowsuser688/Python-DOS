@@ -420,50 +420,146 @@ def desktop(stdscr):
             if choice == "File Explorer":
                 curses.endwin()
                 subprocess.run(["python", "apps/file_explorer.py"])
-                curses.wrapper(desktop)
-                return
+                # Reinitialize curses after app exits
+                stdscr = curses.initscr()
+                curses.start_color()
+                config = load_config()
+                bg_color = get_color_code(config.get('background_color', 'blue'))
+                sel_color = get_color_code(config.get('selection_color', 'red'))
+                curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(3, curses.COLOR_WHITE, sel_color)
+                curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)
+                curses.init_pair(5, curses.COLOR_WHITE, bg_color)
+                stdscr.bkgd(" ", curses.color_pair(5))
+                curses.curs_set(0)
+                stdscr.keypad(True)
             
             elif choice == "Terminal":
                 curses.endwin()
                 subprocess.run(["python", "apps/terminal.py"])
-                curses.wrapper(desktop)
-                return
+                # Reinitialize curses after app exits
+                stdscr = curses.initscr()
+                curses.start_color()
+                config = load_config()
+                bg_color = get_color_code(config.get('background_color', 'blue'))
+                sel_color = get_color_code(config.get('selection_color', 'red'))
+                curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(3, curses.COLOR_WHITE, sel_color)
+                curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)
+                curses.init_pair(5, curses.COLOR_WHITE, bg_color)
+                stdscr.bkgd(" ", curses.color_pair(5))
+                curses.curs_set(0)
+                stdscr.keypad(True)
             
             elif choice == "Calculator":
                 curses.endwin()
                 subprocess.run(["python", "apps/calculator.py"])
-                curses.wrapper(desktop)
-                return
+                # Reinitialize curses after app exits
+                stdscr = curses.initscr()
+                curses.start_color()
+                config = load_config()
+                bg_color = get_color_code(config.get('background_color', 'blue'))
+                sel_color = get_color_code(config.get('selection_color', 'red'))
+                curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(3, curses.COLOR_WHITE, sel_color)
+                curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)
+                curses.init_pair(5, curses.COLOR_WHITE, bg_color)
+                stdscr.bkgd(" ", curses.color_pair(5))
+                curses.curs_set(0)
+                stdscr.keypad(True)
             
             elif choice == "Notepad":
                 curses.endwin()
                 subprocess.run(["python", "apps/notepad.py"])
-                curses.wrapper(desktop)
-                return
+                # Reinitialize curses after app exits
+                stdscr = curses.initscr()
+                curses.start_color()
+                config = load_config()
+                bg_color = get_color_code(config.get('background_color', 'blue'))
+                sel_color = get_color_code(config.get('selection_color', 'red'))
+                curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(3, curses.COLOR_WHITE, sel_color)
+                curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)
+                curses.init_pair(5, curses.COLOR_WHITE, bg_color)
+                stdscr.bkgd(" ", curses.color_pair(5))
+                curses.curs_set(0)
+                stdscr.keypad(True)
             
             elif choice == "Python IDE":
                 curses.endwin()
                 subprocess.run(["python", "apps/python_ide.py"])
-                curses.wrapper(desktop)
-                return
+                # Reinitialize curses after app exits
+                stdscr = curses.initscr()
+                curses.start_color()
+                config = load_config()
+                bg_color = get_color_code(config.get('background_color', 'blue'))
+                sel_color = get_color_code(config.get('selection_color', 'red'))
+                curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(3, curses.COLOR_WHITE, sel_color)
+                curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)
+                curses.init_pair(5, curses.COLOR_WHITE, bg_color)
+                stdscr.bkgd(" ", curses.color_pair(5))
+                curses.curs_set(0)
+                stdscr.keypad(True)
             
             elif choice == "Music Player":
                 curses.endwin()
                 subprocess.run(["python", "apps/music_player.py"])
-                curses.wrapper(desktop)
-                return
+                # Reinitialize curses after app exits
+                stdscr = curses.initscr()
+                curses.start_color()
+                config = load_config()
+                bg_color = get_color_code(config.get('background_color', 'blue'))
+                sel_color = get_color_code(config.get('selection_color', 'red'))
+                curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(3, curses.COLOR_WHITE, sel_color)
+                curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)
+                curses.init_pair(5, curses.COLOR_WHITE, bg_color)
+                stdscr.bkgd(" ", curses.color_pair(5))
+                curses.curs_set(0)
+                stdscr.keypad(True)
             
             elif choice == "Web Browser":
                 curses.endwin()
                 subprocess.run(["python", "apps/web_browser.py"])
-                curses.wrapper(desktop)
-                return
+                # Reinitialize curses after app exits
+                stdscr = curses.initscr()
+                curses.start_color()
+                config = load_config()
+                bg_color = get_color_code(config.get('background_color', 'blue'))
+                sel_color = get_color_code(config.get('selection_color', 'red'))
+                curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(3, curses.COLOR_WHITE, sel_color)
+                curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)
+                curses.init_pair(5, curses.COLOR_WHITE, bg_color)
+                stdscr.bkgd(" ", curses.color_pair(5))
+                curses.curs_set(0)
+                stdscr.keypad(True)
             
             elif choice == "Settings":
                 curses.endwin()
                 subprocess.run(["python", "apps/settings.py"])
-                curses.wrapper(desktop)
-                return
+                # Reinitialize curses after app exits
+                stdscr = curses.initscr()
+                curses.start_color()
+                config = load_config()
+                bg_color = get_color_code(config.get('background_color', 'blue'))
+                sel_color = get_color_code(config.get('selection_color', 'red'))
+                curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_WHITE)
+                curses.init_pair(3, curses.COLOR_WHITE, sel_color)
+                curses.init_pair(4, curses.COLOR_BLACK, curses.COLOR_BLACK)
+                curses.init_pair(5, curses.COLOR_WHITE, bg_color)
+                stdscr.bkgd(" ", curses.color_pair(5))
+                curses.curs_set(0)
+                stdscr.keypad(True)
             
             elif choice == "Log Out":
                 stdscr.clear()
