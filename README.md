@@ -1,6 +1,10 @@
 # Python-DOS
 
 A graphical OS simulator that runs in your terminal with a classic blue interface.
+![Image](https://raw.githubusercontent.com/windowsuser688/Python-DOS/refs/heads/main/preview.PNG)
+- Lock screen
+![Image]([https://raw.githubusercontent.com/windowsuser688/Python-DOS/refs/heads/main/preview.PNG](https://raw.githubusercontent.com/windowsuser688/Python-DOS/refs/heads/main/preview2.PNG))
+- Desktop
 
 ## Features
 
