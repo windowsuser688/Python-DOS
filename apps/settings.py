@@ -20,7 +20,7 @@ def load_config():
             return json.load(f)
     except:
         return {
-            "region": "United States",
+            "timezone_offset": 0,
             "scaling": 1.0,
             "background_color": "blue",
             "selection_color": "red"
@@ -228,9 +228,9 @@ def get_timezone_offset(region):
     }
     return offsets.get(region, 0)
 
-def get_current_time(region):
-    """Get current time adjusted for region"""
-    offset = get_timezone_offset(region)
+def get_current_time(config):
+    """Get current time adjusted for timezone"""
+    offset = config.get('timezone_offset', 0)
     utc_time = datetime.utcnow()
     local_time = utc_time + timedelta(hours=offset)
     return local_time.strftime("%Y-%m-%d %H:%M:%S")
@@ -278,7 +278,7 @@ def settings(stdscr):
     config = load_config()
     menu_items = [
         "System Information",
-        "Change Region",
+        "Change Timezone",
         "Change Scaling",
         "Change Background Color",
         "Change Selection Color",
@@ -292,7 +292,7 @@ def settings(stdscr):
     while True:
         stdscr.clear()
         
-        current_time = get_current_time(config.get('region', 'United States'))
+        current_time = get_current_time(config)
         term_size = stdscr.getmaxyx()
         
         lines = [
@@ -306,7 +306,7 @@ def settings(stdscr):
         lines.extend([
             "",
             "=== Current Settings ===",
-            f"Region: {config.get('region', 'United States')}",
+            f"Timezone: UTC{config.get('timezone_offset', 0):+.1f}",
             f"Scaling: {config['scaling']}x",
             f"Background: {config['background_color']}",
             f"Selection: {config['selection_color']}",
@@ -336,13 +336,24 @@ def settings(stdscr):
             if choice == "System Information":
                 show_system_info(stdscr)
             
-            elif choice == "Change Region":
-                regions = ["United States", "United Kingdom", "Canada", "Mexico", "Brazil", "Argentina",
-                          "France", "Germany", "Italy", "Spain", "Russia", "China", "Japan", "South Korea",
-                          "India", "Australia", "New Zealand", "South Africa", "Egypt", "Nigeria"]
-                new_region = show_selection_menu(stdscr, "Select Region (20 of 195)", regions)
-                if new_region:
-                    config['region'] = new_region
+            elif choice == "Change Timezone":
+                timezones = [
+                    "UTC-8:00 (PST)",
+                    "UTC-5:00 (EST)",
+                    "UTC+0:00 (GMT)",
+                    "UTC+1:00 (CET)",
+                    "UTC+3:00 (MSK)",
+                    "UTC+5:30 (IST)",
+                    "UTC+8:00 (CST)",
+                    "UTC+9:00 (JST)",
+                    "UTC+10:00 (AEST)",
+                    "UTC+12:00 (NZST)"
+                ]
+                new_tz = show_selection_menu(stdscr, "Select Timezone", timezones)
+                if new_tz:
+                    # Parse timezone offset
+                    offset_str = new_tz.split("(")[0].replace("UTC", "").replace("+", "").replace(":00", "").strip()
+                    config['timezone_offset'] = float(offset_str)
             
             elif choice == "Change Scaling":
                 scales = ["0.5x", "0.75x", "1.0x", "1.25x", "1.5x", "2.0x"]
@@ -423,7 +434,7 @@ def show_system_info(stdscr):
         stdscr.clear()
         stdscr.bkgd(" ", curses.color_pair(5))
         
-        current_time = get_current_time(config.get('region', 'United States'))
+        current_time = get_current_time(config)
         term_size = stdscr.getmaxyx()
         
         lines = [
@@ -433,7 +444,7 @@ def show_system_info(stdscr):
             "Version: 1.0.0",
             "Build: 2026.03.08",
             "",
-            f"Region: {config.get('region', 'United States')}",
+            f"Timezone: UTC{config.get('timezone_offset', 0):+.1f}",
             f"Current Time: {current_time}",
             f"Terminal Size: {term_size[0]}x{term_size[1]}",
             "",
