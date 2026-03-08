@@ -1,5 +1,5 @@
 {
-    "timezone_offset": 8.0,
+    "timezone_offset": 0.0,
     "scaling": 1.0,
     "background_color": "blue",
     "selection_color": "red",
@@ -12,3 +12,4 @@
     ],
     "current_user": "root"
 }
+
