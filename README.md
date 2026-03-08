@@ -61,3 +61,5 @@ pip install pygame
 - **Web Browser**: Browse websites (text-only)
 - **Settings**: Customize colors, region, and scaling
 
+# Bugs
+Changing regions is currently broken. Will fix in the next update.
