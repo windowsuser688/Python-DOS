@@ -1,5 +1,5 @@
 {
-    "region": "United States",
+    "timezone_offset": 8.0,
     "scaling": 1.0,
     "background_color": "blue",
     "selection_color": "red",
