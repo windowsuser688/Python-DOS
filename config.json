@@ -3,6 +3,7 @@
     "scaling": 1.0,
     "background_color": "blue",
     "selection_color": "red",
+    "volume": 50,
     "users": [
         {
             "username": "root",
@@ -12,4 +13,3 @@
     ],
     "current_user": "root"
 }
-
