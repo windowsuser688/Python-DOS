@@ -2,7 +2,7 @@
 
 All notable changes to Python-DOS will be documented in this file.
 
-## [1.1.0] - 2026-03-12
+## [1.1] - 2026-03-12
 
 ### Added
 - **Desktop Widgets System**
